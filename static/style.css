@@ -1,0 +1,46 @@
+@font-face {
+    font-family: 'Dot';
+    src: url('./supadot.otf');
+}
+@font-face {
+    font-family: 'ring';
+    src: url('./RingMatrix3D.ttf');
+}
+
+
+body {
+    background-image: url(petals_background_2.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 30px;
+    box-sizing: border-box;
+    font-family: 'Dot','Helvetica';
+}
+
+
+
+#bouncing-gif {
+    position: absolute;
+    width: 100px;
+    height: auto;
+}
+
+h1 {
+    font-size: 10rem;
+    padding: 0px;
+    border: 0px;
+    margin: 0px;
+}
+#dj-cool{
+    margin-top: 50px;
+}
+#mistacoolswords{
+    font-family: 'ring', Courier, monospace;
+    font-size: 2rem;
+    text-align: center;
+}
