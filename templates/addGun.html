@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>add gun.</title>
+    <title>add gun</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -82,7 +82,8 @@
 
     <div class="container">
         <h2>add a gun</h2>
-        <img src="{{ url_for('static', filename='gunspin.gif') }}">
+        <img src="{{ url_for('static', filename='gunspin.gif') }}" onclick="playMusic()" >
+        <p> click the gun for a surprise </p>
         <form action="/submit-gun" method="post" enctype="multipart/form-data">
 
             <div class="input-group">
@@ -111,7 +112,18 @@
 
         </form>
         <img src="{{ url_for('static', filename='car.gif') }}" id="animatedCar">
+        <audio id="bgMusic" preload="auto">
+            <source src="{{ url_for('static', filename='addGunMusic.mp3') }}" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>        
     </div>
+
+    <script>
+        function playMusic() {
+            var audioElement = document.getElementById('bgMusic');
+            audioElement.play();
+        }
+    </script>    
 
 </body>
 
