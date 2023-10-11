@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="addGunStyle.css">
+    <title>add gun.</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Add a gun</h2>
+        <form action="/submit-gun" method="post" enctype="multipart/form-data">
+
+            <div class="input-group">
+                <label for="gun-image">Gun Image:</label>
+                <input type="file" id="gun-image" name="gun-image" accept=".gif">
+            </div>
+
+            <div class="input-group">
+                <label for="gun-name">Name:</label>
+                <input type="text" id="gun-name" name="gun-name" placeholder="Enter gun name" required>
+            </div>
+
+            <div class="input-group">
+                <label for="gun-description">Description:</label>
+                <textarea id="gun-description" name="gun-description" placeholder="Enter gun description" rows="4"></textarea>
+            </div>
+
+            <div class="input-group">
+                <label for="gun-price">Price ($):</label>
+                <input type="number" id="gun-price" name="gun-price" placeholder="0.00" step="0.01" min="0" required>
+            </div>
+
+            <div class="input-group">
+                <input type="submit" value="Add gun">
+            </div>
+
+        </form>
+    </div>
+
+</body>
+
+</html>
