@@ -8,12 +8,17 @@
     />
   </head>
   <body>
-    <h1> ██████╗ ██╗   ██╗███╗   ██╗    ███████╗████████╗ ██████╗ ██████╗ ███████╗
-██╔════╝ ██║   ██║████╗  ██║    ██╔════╝╚══██╔══╝██╔═══██╗██╔══██╗██╔════╝
-██║  ███╗██║   ██║██╔██╗ ██║    ███████╗   ██║   ██║   ██║██████╔╝█████╗
-██║   ██║██║   ██║██║╚██╗██║    ╚════██║   ██║   ██║   ██║██╔══██╗██╔══╝
-╚██████╔╝╚██████╔╝██║ ╚████║    ███████║   ██║   ╚██████╔╝██║  ██║███████╗
- ╚═════╝  ╚═════╝ ╚═╝  ╚═══╝    ╚══════╝   ╚═╝    ╚═════╝ ╚═╝  ╚═╝╚══════╝</h1>
-    <img src="{{ url_for('static', filename='super_spy_gun.gif') }}">;
+
+    <audio id="music" src="{{url_for('static', filename='music.mp3') }}"></audio>
+    <h1> GUN STORE</h1>
+    <marquee><h2>WELCOME TO OUR PERFECTLY LEGAL GUN STORE</h2></marquee>
+    <img src="{{ url_for('static', filename='super_spy_gun.gif') }}">
+    <img id="bouncing-gif" src="{{url_for('static', filename='dollarspindownd.gif') }}" alt="Bouncing GIF">
+    <img id="dj-cool" src="{{url_for('static', filename='dj_coolllll.gif') }}" alt="Bouncing GIF">
+      <p id="mistacoolswords">Click DJ Cool To play some shopping tunes</p>
+    
+    <script
+      src="{{url_for('static', filename='main.js') }}"
+    ></script>
   </body>
 </html>
