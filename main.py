@@ -13,3 +13,15 @@ def add_gun():
 @app.route("/delete-gun")
 def delete_gun():
     return render_template('deleteGun.html')
+
+@app.route("/about")
+def about():
+    return render_template('about.html')
+
+@app.route("/edit-gun")
+def edit_gun():
+    return render_template('editGun.html')
+
+@app.route("/display-gun")
+def display_gun():
+    return render_template('displayGun.html')
