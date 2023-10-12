@@ -9,3 +9,7 @@ def home():
 @app.route("/add-gun")
 def add_gun():
     return render_template('addGun.html')
+
+@app.route("/delete-gun")
+def delete_gun():
+    return render_template('deleteGun.html')

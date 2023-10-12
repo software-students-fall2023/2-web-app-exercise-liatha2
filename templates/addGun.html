@@ -6,6 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>add gun</title>
     <style>
+        @font-face {
+            font-family: 'title';
+            src: url('./static/bd.otf');
+        }
+
+        @font-face {
+            font-family: 'text';
+            src: url('./static/kupole.ttf');
+        }
+
         body {
             font-family: Arial, sans-serif;
             background-color: #6baee8;
@@ -27,6 +37,13 @@
         h2 {
             text-align: center;
             margin-bottom: 20px;
+            font-family: 'title','Helvetica';
+            font-size: 100px;
+            color: #6baee8;
+        }
+
+        p {
+            font-family: 'text','Helvetica';
         }
         
         .input-group {
@@ -36,6 +53,7 @@
         label {
             display: block;
             margin-bottom: 10px;
+            font-family: 'text','Helvetica';
         }
         
         input[type="text"], 
@@ -49,7 +67,7 @@
         }
         
         input[type="submit"] {
-            background-color: #007BFF;
+            background-color: #6baee8;
             color: white;
             padding: 10px 20px;
             border: none;
@@ -60,6 +78,12 @@
         
         input[type="submit"]:hover {
             background-color: #0056b3;
+        }
+
+        .flex-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
         }
 
         #animatedCar {
@@ -81,9 +105,13 @@
 <body>
 
     <div class="container">
-        <h2>add a gun</h2>
-        <img src="{{ url_for('static', filename='gunspin.gif') }}" onclick="playMusic()" >
-        <p> click the gun for a surprise </p>
+        <h2>add a Gun</h2>
+
+        <div class="flex-container">
+            <img src="{{ url_for('static', filename='gunspin.gif') }}" onclick="playMusic()">
+            <p>click the gun for a surprise</p>
+        </div>
+
         <form action="/submit-gun" method="post" enctype="multipart/form-data">
 
             <div class="input-group">
