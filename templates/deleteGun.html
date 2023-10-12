@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
     <title>delete gun</title>
     <style>
         @font-face {
@@ -26,6 +27,7 @@
             border-radius: 5px;
             margin: 50px auto;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
 
         p {
@@ -80,8 +82,11 @@
         .arrow-container {
             display: flex;
             justify-content: center;
-            position: relative;
             margin-bottom: 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
         
         .arrow {
@@ -103,15 +108,17 @@
         }
         
         .arrow-right {
-            left: 100px;
+            right: 100px;
             top: 50%;
             transform: translateY(-50%);
         }
             
         .arrow-left {
-            right: 100px;
+            left: 100px;
             top: 50%;
             transform: translateY(-50%);
+            width: 50px;
+            height: auto;
         }
         
         .submit-button {
@@ -156,7 +163,7 @@
                 <label for="reason-for-deletion">Reason for deletion:</label>
                 <input type="text" id="reason-for-deletion" name="reason-for-deletion" placeholder="Why are you deleting this gun ?????" >
             </div>
-            <div class="arrow-container">
+            <div class="arrow-container" id="arrow-container">
                 <img src="{{ url_for('static', filename='down.gif') }}" class="arrow arrow-down">
                 <img src="{{ url_for('static', filename='right.gif') }}" class="arrow arrow-right">
                 <input type="image" src="{{ url_for('static', filename='no.gif') }}" alt="Delete gun" class="submit-button">
@@ -170,6 +177,35 @@
             <img src="{{ url_for('static', filename='skeletonspin.gif') }}" >  
         </div>
     </div> 
+    <script>
+        const arrowContainer = document.getElementById('arrow-container');
+        const reasonForDeletionInput = document.getElementById('reason-for-deletion');
+        const container = document.querySelector('.container');
+
+        const animateMove = (element, prop, pixels) =>
+            anime({
+                targets: element,
+                [prop]: `${pixels}px`,
+                easing: "easeOutCirc"
+            });
+
+            ["mouseover", "click"].forEach(function (el) {
+                arrowContainer.addEventListener(el, function (event) {
+                    if (reasonForDeletionInput.value.trim() === '') {
+                        const top = getRandomNumber(container.clientHeight - this.offsetHeight);
+                        const left = getRandomNumber(container.clientWidth - this.offsetWidth);
+            
+                        animateMove(this, "left", left).play();
+                        animateMove(this, "top", top).play();
+                    }
+                });
+            });
+
+        const getRandomNumber = (num) => {
+            return Math.floor(Math.random() * (num + 1));
+        };
+
+    </script>    
 
 </body>
 
