@@ -12,8 +12,76 @@
 
   </head>
   <body>
+    <header>
+        <h1>THE GUN STORE</h1>
+    </header>
+
+    
+
+    <div id="gun-container">
+        <img id="gun-image" src="#">
+    </div>
+
+    <div id="name-container">
+        <h4 id="name">Gun Name</h4>
+        <p id="price"><strong>Price ($): </strong> $1.27</p>
+
+    </div>
+
+    <div id="add-to-cart">
+        <p id="add-cart-text">Add to Cart</p>
+    </div>
+
+    <div id="description-container">
+        <p id="description"><strong>Description: </strong></p>
+    </div>
+
+    <img id="cart" src="../static/shoppingcart.png">
+
+    <div id="cart-total-container">
+        <p id="cart-total">0</p>
+    </div>
+
+    <div id="edit-delete-container">
+        <a href="editGun.html" id="edit-button">
+            <p id="edit-text">Edit Gun</p>
+        </a>
+        <a id="delete-button" href="deleteGun.html">
+            <p id="delete-text">Delete Gun</p>
+        </a>
+        
+    </div>
+
+    <script>
+        const gunName = document.getElementById('name');
+        const gunImg = document.getElementById('gun-image');
+        const gunPrice = document.getElementById('price');
+        const gunDescription = document.getElementById('description');
+        const addCart = document.getElementById('add-to-cart');
+        const addCartText = document.getElementById('add-cart-text');
+        const cartContainer = document.getElementById('cart-total-container');
+        const cartTotal = document.getElementById('cart-total');
+        const editDeleteContainer = document.getElementById('edit-delete-container');
+        const editButton = document.getElementById('edit-button');
+        const deleteButton = document.getElementById('delete-button');
 
 
-    <script></script>
+        gunImg.src = '../static/furry-gun.gif';
+        gunName.innerHTML =  'Furry Gun';
+        gunPrice.innerHTML = '127 doge coins';
+        gunDescription.innerHTML = "This furry gun is soft-to-the-touch. A true man's best friend, this gun will bark for every shot fired.";
+        addCartText.innerHTML += ' - ' + gunPrice.innerText;
+
+        addCart.addEventListener("pointerdown", updateCart);
+
+        let numObjectsInCart = 0;
+
+        function updateCart(){
+            console.log('clicked');
+            numObjectsInCart++;
+            cartTotal.innerHTML = numObjectsInCart;
+        }
+
+    </script>
   </body>
 </html>
