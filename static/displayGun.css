@@ -1,0 +1,93 @@
+*{
+    margin: 10px;
+}
+
+body {
+    margin: 0;
+    font-size: larger;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+body::-webkit-scrollbar{
+    display: none;
+}
+
+#gun-container {
+    height: 90%;
+    width: 100%;
+    display: flex;
+    justify-self: center;
+    justify-content: center;
+    align-items: center;
+}
+
+img {
+    width: 400px;
+}
+
+#name-container {
+    width: 90%;
+    justify-self: center;
+    justify-content: space-between;
+    display: flex;
+}
+
+h2{
+    max-width: fit-content;
+}
+
+#description {
+    max-width: fit-content;
+}
+
+#description-container {
+    width: 90%;
+    justify-self: center;
+    justify-content: center;
+    display: flex;
+}
+
+#cart {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 100px;
+}
+
+#cart-total-container {
+    position:fixed;
+    bottom: 70px;
+    right: 0;
+    background-color: red;
+    border-radius: 50%;
+}
+#cart-total {
+    height:15px;
+    width: 15px;
+    color: white;
+}
+
+#add-to-cart {
+    color: white;
+    background-color: black;
+    width: 600px;
+    padding-left: 15px;
+}
+
+#edit-delete-container {
+    width: 90%;
+    justify-self: center;
+    justify-content: center;
+    display: flex;
+}
+
+#delete-button, #edit-button {
+    background-color: black;
+    color: white;
+    height: 40px;
+    text-decoration: none;
+}
+
