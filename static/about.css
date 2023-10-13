@@ -1,8 +1,19 @@
+*{
+    margin: 10px;
+}
+
 body {
     background-color: rgb(83, 32, 130);
-    overflow: hidden;
     margin: 0;
     font-size: larger;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+body::-webkit-scrollbar{
+    display: none;
 }
 
 #title {
@@ -16,19 +27,29 @@ body {
 }
 
 p, h5{
+    display: flex;
+    justify-content: center;
+    align-content: center;
     padding: 25px;
     color: white;
     letter-spacing: .1em;
 }
 
 .flex-container {
+    justify-content: center;
     align-items: center;
     max-width: 550px;
-    margin: 30px auto;
 }
 
 .flex-container2 {
+    justify-content: center;
     align-items: center;
     max-width: 500px;
-    margin: 50px auto;
+    max-height:fit-content;
+}
+
+@media screen and (max-width: 700px){
+    body {
+        padding-left: 20%;
+    }
 }
