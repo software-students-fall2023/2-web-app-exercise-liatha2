@@ -64,6 +64,7 @@
         const editButton = document.getElementById('edit-button');
         const deleteButton = document.getElementById('delete-button');
 
+        localStorage.removeItem('gunName');
 
         gunImg.src = '../static/furry-gun.gif';
         gunName.innerHTML =  'Furry Gun';
@@ -81,6 +82,9 @@
             cartTotal.innerHTML = numObjectsInCart;
         }
 
+        editButton.addEventListener('pointerdown', function(){
+            localStorage.setItem('gunName', gunName.innerHTML);
+        })
     </script>
   </body>
 </html>
