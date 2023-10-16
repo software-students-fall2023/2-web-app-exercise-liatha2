@@ -42,13 +42,9 @@
     </div>
 
     <div id="edit-delete-container">
-        <a href="editGun.html" id="edit-button">
-            <p id="edit-text">Edit Gun</p>
-        </a>
-        <a id="delete-button" href="deleteGun.html">
-            <p id="delete-text">Delete Gun</p>
-        </a>
-        
+        <a href="{{ url_for('edit_gun') }}"><p id="edit-button">Edit Gun</p></a>
+        <a href="{{ url_for('delete_gun') }}"><p id="delete-button">Delete Gun</p></a>
+
     </div>
 
     <script>
