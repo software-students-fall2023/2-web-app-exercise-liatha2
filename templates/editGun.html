@@ -42,7 +42,21 @@
         </div>
 
     </form>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script> 
+    <script>
+      const lenis = new Lenis()
 
+lenis.on('scroll', (e) => {
+  console.log(e)
+})
+
+function raf(time) {
+  lenis.raf(time)
+  requestAnimationFrame(raf)
+}
+
+requestAnimationFrame(raf)
+    </script>
     <script>
         const editTitle = document.getElementById('edit-page-title');
         const submitButton = document.getElementById('edit-submit');

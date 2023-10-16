@@ -7,8 +7,7 @@
       href="{{url_for('static', filename='home.css') }}"
     />
   </head>
-  <body>
-
+  <body id="content">
     <audio id="music" src="{{url_for('static', filename='music.mp3') }}"></audio>
     <h1> GUN STORE</h1>
     <marquee><h2>WELCOME TO OUR PERFECTLY LEGAL GUN STORE</h2></marquee>
@@ -26,9 +25,23 @@
       <a href="{{ url_for('delete_gun') }}"><p class="addgun">DELETE A GUN</p></a>
       <img class="editbutton" src="{{url_for('static', filename='aboutbutton.gif') }}" onclick="" alt="editbutton">
       <a href="{{ url_for('about') }}"><p class="addgun">ABOUT</p></a>
-   
       <script
       src="{{url_for('static', filename='main.js') }}"
     ></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script> 
+    <script>
+      const lenis = new Lenis()
+
+lenis.on('scroll', (e) => {
+  console.log(e)
+})
+
+function raf(time) {
+  lenis.raf(time)
+  requestAnimationFrame(raf)
+}
+
+requestAnimationFrame(raf)
+    </script>
   </body>
 </html>

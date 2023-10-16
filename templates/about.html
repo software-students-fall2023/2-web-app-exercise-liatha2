@@ -30,6 +30,20 @@
 
     <p><strong>Brought to you by the creative minds of Lianna Poblete, Athena Leong, and Harry Minsky.</strong></p>
     
-    <script></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script> 
+    <script>
+      const lenis = new Lenis()
+
+lenis.on('scroll', (e) => {
+  console.log(e)
+})
+
+function raf(time) {
+  lenis.raf(time)
+  requestAnimationFrame(raf)
+}
+
+requestAnimationFrame(raf)
+    </script>    
   </body>
 </html>
