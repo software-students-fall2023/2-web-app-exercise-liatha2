@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'stairs';
+    src: url('./Stairs.otf');
+}
+
+#title{
+    font-family: 'stairs',Courier,Helvetica;
+    max-width: 600px;
+    font-size: 3rem;
+}
