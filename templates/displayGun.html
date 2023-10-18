@@ -46,7 +46,21 @@
         <a href="{{ url_for('delete_gun') }}"><p id="delete-button">Delete Gun</p></a>
 
     </div>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script> 
+    <script>
+      const lenis = new Lenis()
 
+lenis.on('scroll', (e) => {
+  console.log(e)
+})
+
+function raf(time) {
+  lenis.raf(time)
+  requestAnimationFrame(raf)
+}
+
+requestAnimationFrame(raf)
+    </script>
     <script>
         const gunName = document.getElementById('name');
         const gunImg = document.getElementById('gun-image');

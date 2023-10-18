@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Gun Store</title>
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='search.css') }}"
+    />
+  </head>
+  <body>
+    <h1 id="title">Search</h1>
+    <form action="/" method="POST">
+        <input type="text" name="query" placeholder="Search...">
+        <input type="submit" value="Search">
+    </form>
+
+    {% if query_result %}
+        <h2>Results:</h2>
+        <ul>
+        {% for item in query_result %}
+            <li>{{ item.your_field }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+    <script src="{{url_for('static', filename='search.js') }}"></script>
+  </body>
+</html>

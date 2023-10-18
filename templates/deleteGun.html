@@ -177,6 +177,21 @@
             <img src="{{ url_for('static', filename='skeletonspin.gif') }}" >  
         </div>
     </div> 
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script> 
+    <script>
+      const lenis = new Lenis()
+
+lenis.on('scroll', (e) => {
+  console.log(e)
+})
+
+function raf(time) {
+  lenis.raf(time)
+  requestAnimationFrame(raf)
+}
+
+requestAnimationFrame(raf)
+    </script>
     <script>
         const arrowContainer = document.getElementById('arrow-container');
         const reasonForDeletionInput = document.getElementById('reason-for-deletion');

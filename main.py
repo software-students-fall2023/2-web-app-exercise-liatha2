@@ -25,3 +25,7 @@ def edit_gun():
 @app.route("/display-gun")
 def display_gun():
     return render_template('displayGun.html')
+
+@app.route("/search")
+def search():
+    return render_template('search.html')
