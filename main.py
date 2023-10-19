@@ -111,7 +111,7 @@ def editgun():
     }
 
     try:
-        result = db.update_one(filter_criteria, update_operation)
+        result = db.guns.update_one(filter_criteria, update_operation)
         if result.matched_count == 0:
             # Handle the case where no document matched the criteria
             # You can show an error message or take other appropriate actions

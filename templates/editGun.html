@@ -62,12 +62,6 @@ requestAnimationFrame(raf)
         const submitButton = document.getElementById('edit-submit');
 
         editTitle.innerHTML += localStorage.getItem('gunName');
-
-        submitButton.addEventListener('pointerdown', function(){
-            document.getElementById('gun-name').value = "";
-            document.getElementById('gun-description').value = "";
-            document.getElementById('gun-price').value = 0.00;
-        })
     </script>
   </body>
 </html>
