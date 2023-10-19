@@ -110,8 +110,15 @@ def editgun():
         }
     }
 
-    # Update the document in the collection that matches the filter criteria
-    db.update_one(filter_criteria, update_operation)
+    try:
+        result = db.update_one(filter_criteria, update_operation)
+        if result.matched_count == 0:
+            # Handle the case where no document matched the criteria
+            # You can show an error message or take other appropriate actions
+            print("Entry doesn't exist")
+    except UpdateError as e:
+        # Handle the error if there's an issue with the update
+        print("Update failure")
 
     # Redirect the user to the home page
     return redirect(url_for("home"))
