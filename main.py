@@ -84,3 +84,34 @@ def submit_gun():
     db.guns.insert_one(gun)
     
     return redirect(url_for("home"))
+
+
+@app.route("/edit-gun", methods=["POST"])
+def editgun():
+    gun_image = request.files["gun-image"]
+    filename = secure_filename(gun_image.filename)
+    gun_image.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+    gun_description = request.form["gun-description"]
+    gun_price = request.form["gun-price"]
+
+    # Assuming you want to update a document based on a unique identifier, for example, the gun name
+    gun_name = request.form["gun-name"]
+    
+    # Define the filter criteria to match the specific document you want to update
+    filter_criteria = {"name": gun_name}
+
+    # Define the update operation to update all fields in the matching document
+    update_operation = {
+        "$set": {
+            "name": gun_name,
+            "image": filename,
+            "description": gun_description,
+            "price": float(gun_price)
+        }
+    }
+
+    # Update the document in the collection that matches the filter criteria
+    collection.update_one(filter_criteria, update_operation)
+
+    # Redirect the user to the home page
+    return redirect(url_for("home"))
