@@ -111,7 +111,7 @@ def editgun():
     }
 
     # Update the document in the collection that matches the filter criteria
-    collection.update_one(filter_criteria, update_operation)
+    db.update_one(filter_criteria, update_operation)
 
     # Redirect the user to the home page
     return redirect(url_for("home"))
