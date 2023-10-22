@@ -22,6 +22,7 @@
     <div id="name-container">
       <h4 id="name">{{ gun.name }}</h4>
       <p id="price"><strong>Price ($): </strong> ${{ gun.price }}</p>
+
     </div>
 
     <div id="add-to-cart">
@@ -32,6 +33,7 @@
       <p id="description">
         <strong>Description: </strong> {{ gun.description }}
       </p>
+
     </div>
 
     <img id="cart" src="../static/shoppingcart.png" />
@@ -79,6 +81,8 @@
       editButton.addEventListener("pointerdown", function () {
         localStorage.setItem("gunName", gunName.innerHTML);
       });
+
+
     </script>
   </body>
 </html>

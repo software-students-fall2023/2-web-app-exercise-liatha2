@@ -82,6 +82,7 @@ def gallery():
     guns = db.guns.find()
     return render_template('gallery.html', guns=guns)
 
+
 @app.route("/search")
 def search():
     return render_template('search.html')
