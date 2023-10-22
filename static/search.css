@@ -3,8 +3,20 @@
     src: url('./Stairs.otf');
 }
 
+@font-face {
+    font-family: 'banisuq';
+    src: url('./Banquise-Regular.otf');
+}
+
 #title{
     font-family: 'stairs',Courier,Helvetica;
     max-width: 600px;
     font-size: 3rem;
+}
+
+.gunBox{
+    font-family: 'banisuq','Courier New', Courier, monospace;
+    align-content: center;
+    border-color: aqua;
+    
 }

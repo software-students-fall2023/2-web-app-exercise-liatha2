@@ -1,67 +1,85 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Edit Gun</title>
-    <link
-      rel="stylesheet"
-      href="../static/editGun.css"
-    />
+    <link rel="stylesheet" href="../static/editGun.css" />
   </head>
   <body>
     <marquee behavior="alternate"><h1>THE GUN STORE PEW PEW</h1></marquee>
 
-    <h3 id="edit-page-title">Edit </h3>
+    <h3 id="edit-page-title">{{ gun.name }}</h3>
 
-    <form id="form" action="/edit-gun" method="post" enctype="multipart/form-data">
+    <form
+      id="form"
+      action="/edit-gun"
+      method="post"
+      enctype="multipart/form-data"
+    >
+      <div class="input-group">
+        <label for="gun-image">Image:</label>
+        <input type="file" id="gun-image" name="gun-image" accept=".gif" />
+      </div>
 
-        <div class="input-group">
-            <label for="gun-image">Image:</label>
-            <input type="file" id="gun-image" name="gun-image" accept=".gif">
-        </div>
+      <div class="input-group">
+        <label for="gun-name">Name (should match gun to be updated):</label>
+        <input
+          type="text"
+          id="gun-name"
+          name="gun-name"
+          placeholder="Enter gun name"
+          required
+        />
+      </div>
 
-        <div class="input-group">
-            <label for="gun-name">Name (should match gun to be updated):</label>
-            <input type="text" id="gun-name" name="gun-name" placeholder="Enter gun name" required>
-        </div>
+      <div class="input-group">
+        <label for="gun-description">Description:</label>
+        <textarea
+          id="gun-description"
+          name="gun-description"
+          placeholder="Enter gun description"
+          rows="4"
+        ></textarea>
+      </div>
 
-        <div class="input-group">
-            <label for="gun-description">Description:</label>
-            <textarea id="gun-description" name="gun-description" placeholder="Enter gun description" rows="4"></textarea>
-        </div>
+      <div class="input-group">
+        <label for="gun-price">Price ($):</label>
+        <input
+          type="number"
+          id="gun-price"
+          name="gun-price"
+          placeholder="0.00"
+          step="0.01"
+          min="0"
+          required
+        />
+      </div>
 
-        <div class="input-group">
-            <label for="gun-price">Price ($):</label>
-            <input type="number" id="gun-price" name="gun-price" placeholder="0.00" step="0.01" min="0" required>
-        </div>
-
-        <div class="input-group">
-            <input id="edit-submit" type="submit" value="Edit gun">
-        </div>
-
+      <div class="input-group">
+        <input id="edit-submit" type="submit" value="Edit gun" />
+      </div>
     </form>
-    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script> 
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script>
     <script>
-      const lenis = new Lenis()
+      const lenis = new Lenis();
 
-lenis.on('scroll', (e) => {
-  console.log(e)
-})
+      lenis.on("scroll", (e) => {
+        console.log(e);
+      });
 
-function raf(time) {
-  lenis.raf(time)
-  requestAnimationFrame(raf)
-}
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
 
-requestAnimationFrame(raf)
+      requestAnimationFrame(raf);
     </script>
     <script>
-        const editTitle = document.getElementById('edit-page-title');
-        const submitButton = document.getElementById('edit-submit');
+      const submitButton = document.getElementById("edit-submit");
 
-        editTitle.innerHTML += localStorage.getItem('gunName');
+      editTitle.innerHTML += localStorage.getItem("gunName");
     </script>
   </body>
 </html>

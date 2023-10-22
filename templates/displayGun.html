@@ -1,100 +1,76 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Display Gun</title>
-    <link
-      rel="stylesheet"
-      href="../static/displayGun.css"
-    />
+    <link rel="stylesheet" href="../static/displayGun.css" />
   </head>
   <body>
     <header>
-        <h1>THE GUN STORE</h1>
+      <h1>THE GUN STORE</h1>
     </header>
 
-    
-
     <div id="gun-container">
-        <img id="gun-image" src="#">
-    </div>
+      <img id="gun-image" src="{{ url_for('static', filename='upload/' + gun.image) }}">
+  </div>
 
-    <div id="name-container">
-        <h4 id="name">Gun Name</h4>
-        <p id="price"><strong>Price ($): </strong> $1.27</p>
-
-    </div>
+  <div id="name-container">
+    <h4 id="name">{{ gun.name }}</h4>
+    <p id="price"><strong>Price ($): </strong> ${{ gun.price }}</p>
+</div>
 
     <div id="add-to-cart">
-        <p id="add-cart-text">Add to Cart</p>
+      <p id="add-cart-text">Add to Cart</p>
     </div>
 
     <div id="description-container">
-        <p id="description"><strong>Description: </strong></p>
-    </div>
+      <p id="description"><strong>Description: </strong> {{ gun.description }}</p>
+  </div>
 
-    <img id="cart" src="../static/shoppingcart.png">
+    <img id="cart" src="../static/shoppingcart.png" />
 
     <div id="cart-total-container">
-        <p id="cart-total">0</p>
+      <p id="cart-total">0</p>
     </div>
 
     <div id="edit-delete-container">
-        <a href="{{ url_for('edit_gun') }}"><p id="edit-button">Edit Gun</p></a>
-        <a href="{{ url_for('delete_gun') }}"><p id="delete-button">Delete Gun</p></a>
-
-    </div>
-    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script> 
+      <a href="{{ url_for('edit_gun', gun_id=gun._id) }}"><p id="edit-button">Edit Gun</p></a>
+      <a href="{{ url_for('delete_gun', gun_id=gun._id) }}"><p id="delete-button">Delete Gun</p></a>
+  </div>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script>
     <script>
-      const lenis = new Lenis()
+      const lenis = new Lenis();
 
-lenis.on('scroll', (e) => {
-  console.log(e)
-})
+      lenis.on("scroll", (e) => {
+        console.log(e);
+      });
 
-function raf(time) {
-  lenis.raf(time)
-  requestAnimationFrame(raf)
-}
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
 
-requestAnimationFrame(raf)
+      requestAnimationFrame(raf);
     </script>
     <script>
-        const gunName = document.getElementById('name');
-        const gunImg = document.getElementById('gun-image');
-        const gunPrice = document.getElementById('price');
-        const gunDescription = document.getElementById('description');
-        const addCart = document.getElementById('add-to-cart');
-        const addCartText = document.getElementById('add-cart-text');
-        const cartContainer = document.getElementById('cart-total-container');
-        const cartTotal = document.getElementById('cart-total');
-        const editDeleteContainer = document.getElementById('edit-delete-container');
-        const editButton = document.getElementById('edit-button');
-        const deleteButton = document.getElementById('delete-button');
+      
+      addCartText.innerHTML += " - " + gunPrice.innerText;
 
-        localStorage.removeItem('gunName');
+      addCart.addEventListener("pointerdown", updateCart);
 
-        gunImg.src = '../static/furry-gun.gif';
-        gunName.innerHTML =  'Furry Gun';
-        gunPrice.innerHTML = '127 doge coins';
-        gunDescription.innerHTML = "This furry gun is soft-to-the-touch. A true man's best friend, this gun will bark for every shot fired.";
-        addCartText.innerHTML += ' - ' + gunPrice.innerText;
+      let numObjectsInCart = 0;
 
-        addCart.addEventListener("pointerdown", updateCart);
+      function updateCart() {
+        console.log("clicked");
+        numObjectsInCart++;
+        cartTotal.innerHTML = numObjectsInCart;
+      }
 
-        let numObjectsInCart = 0;
-
-        function updateCart(){
-            console.log('clicked');
-            numObjectsInCart++;
-            cartTotal.innerHTML = numObjectsInCart;
-        }
-
-        editButton.addEventListener('pointerdown', function(){
-            localStorage.setItem('gunName', gunName.innerHTML);
-        })
+      editButton.addEventListener("pointerdown", function () {
+        localStorage.setItem("gunName", gunName.innerHTML);
+      });
     </script>
   </body>
 </html>

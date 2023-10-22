@@ -53,17 +53,43 @@ def delete_gun():
 def about():
     return render_template('about.html')
 
-@app.route("/edit-gun")
-def edit_gun():
-    return render_template('editGun.html')
+@app.route("/edit-gun/<gun_id>",methods=["GET"])
+def edit_gun(gun_id):
+    gun = db.guns.find_one({"_id": ObjectId(gun_id)})
+    return render_template('editGun.html',gun=gun)
 
-@app.route("/display-gun")
-def display_gun():
-    return render_template('displayGun.html')
+@app.route("/display-gun/<gun_id>")
+def display_gun(gun_id):
+    gun = db.guns.find_one({"_id": ObjectId(gun_id)})
+    if gun:
+        return render_template('displayGun.html', gun=gun)
+    else:
+        return "Gun not found", 404
+    
+@app.route("/gallery")
+def gallery():
+    guns = db.guns.find()
+    return render_template('gallery.html', guns=guns)
 
 @app.route("/search")
 def search():
     return render_template('search.html')
+
+@app.route("/search", methods=["GET", "POST"])
+def search_gun():
+    if request.method == "POST":
+        query = request.form["query"]
+        try:
+            query_price = float(query)
+            query_result = db.guns.find({"price": query_price})
+        except ValueError:
+            query_result = db.guns.find({"name": {"$regex": query, "$options": 'i'}})
+            
+        guns = [gun for gun in query_result]
+        return render_template('search.html', guns=guns)
+    
+    return render_template('search.html')
+
 
 @app.route("/submit-gun", methods=["POST"])
 def submit_gun():

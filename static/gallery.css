@@ -1,0 +1,34 @@
+
+
+@font-face {
+    font-family: 'banisuq';
+    src: url('./Banquise-Regular.otf');
+}
+
+.gun-card {
+    position: absolute;
+    width: 300px;
+    padding: 20px;
+    font-family: 'banisuq','Courier New', Courier, monospace;
+    align-content: center;
+    cursor: move;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+#gallery {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    -moz-user-select: none;
+-webkit-user-select: none;
+user-select: none;
+background-image: url(./pinko.gif);
+background-repeat: no-repeat;
+background-size: cover;
+}
