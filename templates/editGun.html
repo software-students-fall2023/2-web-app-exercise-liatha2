@@ -61,7 +61,12 @@ requestAnimationFrame(raf)
         const editTitle = document.getElementById('edit-page-title');
         const submitButton = document.getElementById('edit-submit');
 
-        editTitle.innerHTML += localStorage.getItem('gunName');
+        if (localStorage.getItem('gunName') == null){
+          editTitle.innerHTML = "Edit a Gun";
+        }
+        else {
+          editTitle.innerHTML += localStorage.getItem('gunName');
+        }
     </script>
   </body>
 </html>
