@@ -57,9 +57,12 @@ def about():
 def edit_gun():
     return render_template('editGun.html')
 
-@app.route("/display-gun")
-def display_gun():
-    return render_template('displayGun.html')
+@app.route("/display-gun<gun_name>")
+def display_gun(gun_name):
+    # Fetch the document from MongoDB using its _id
+    document = db.guns.find_one({"gun-name": gun_name})
+    filename = document.image
+    return render_template('displayGun.html', document=document, filename=filename)
 
 @app.route("/search")
 def search():
