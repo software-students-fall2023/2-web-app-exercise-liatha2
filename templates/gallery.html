@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gun Gallery</title>
+    <link
+    rel="stylesheet"
+    href="{{url_for('static', filename='gallery.css') }}"
+  />
+</head>
+<body>
+
+    <div id="gallery">
+        {% for gun in guns %}
+            <div class="gun-card" id="{{ gun._id }}">
+                <img src="{{ url_for('static', filename='upload/' + gun.image) }}" width="100%">
+                <h4>{{ gun.name }}</h4>
+                <p>Price: ${{ gun.price }}</p>
+                <p>{{ gun.description }}</p>
+            </div>
+        {% endfor %}
+    </div>
+
+    <script>
+   let cards = document.querySelectorAll('.gun-card');
+    let vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+    let vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
+
+    function randomizePosition(card) {
+        let randomX = Math.random() * (vw - card.offsetWidth);
+        let randomY = Math.random() * (vh - card.offsetHeight);
+        
+        card.style.left = randomX + 'px';
+        card.style.top = randomY + 'px';
+    }
+
+    document.addEventListener('click', function() {
+        cards.forEach(randomizePosition);
+    });
+  </script>
+
+</body>
+</html>

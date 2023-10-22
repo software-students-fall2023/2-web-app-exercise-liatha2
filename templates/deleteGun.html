@@ -1,227 +1,253 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
     <title>delete gun</title>
     <style>
-        @font-face {
-            font-family: 'text';
-            src: url('./static/Acidic.TTF');
-        }
-        
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #000000;
-            margin: 0;
-            padding: 20px;
-            line-height: 1.6;
-        }
-        
-        .container {
-            background-color: #12110d;
-            max-width: 600px;
-            padding: 20px;
-            border-radius: 5px;
-            margin: 50px auto;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            position: relative;
-        }
+      @font-face {
+        font-family: "text";
+        src: url("./static/Acidic.TTF");
+      }
 
-        p {
-            color: #f5f242;
-            font-family: 'text','Helvetica';
-            letter-spacing: 5px;
-            word-spacing: 10px;
-        }
-        
-        .input-group {
-            margin-bottom: 20px;
-        }
-        
-        label {
-            display: block;
-            margin-bottom: 10px;
-            color: #f5f242;
-            font-family: 'text','Helvetica';
-            letter-spacing: 5px;
-            word-spacing: 10px;
-        }
-        
-        input[type="text"], 
-        input[type="number"], 
-        textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 14px;
-        }
-        
-        input[type="submit"] {
-            background-color: #b50404;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-        
-        input[type="submit"]:hover {
-            background-color: #4d0909;
-        }
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #000000;
+        margin: 0;
+        padding: 20px;
+        line-height: 1.6;
+      }
 
-        .skeleton-gun {
-            width: 200px;
-            height: auto;
-        }
+      .container {
+        background-color: #12110d;
+        max-width: 600px;
+        padding: 20px;
+        border-radius: 5px;
+        margin: 50px auto;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        position: relative;
+      }
 
-        .arrow-container {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 20px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-        
-        .arrow {
-            position: absolute;
-            width: 30px;
-            height: auto;
-        }
-        
-        .arrow-down {
-            top: -40px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        
-        .arrow-up {
-            bottom: -40px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        
-        .arrow-right {
-            right: 100px;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-            
-        .arrow-left {
-            left: 100px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 50px;
-            height: auto;
-        }
-        
-        .submit-button {
-            position: relative;
-            z-index: 1;
-        }      
-        
-        .flex-row {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        
-        .bottom-section {
-            margin-top: 20px;
-            justify-content: flex-start;
-        }
-        
-        .bottom-section p {
-            margin-right: 20px;
-            flex-grow: 2;
-        }
-        
+      p {
+        color: #f5f242;
+        font-family: "text", "Helvetica";
+        letter-spacing: 5px;
+        word-spacing: 10px;
+      }
+
+      .input-group {
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 10px;
+        color: #f5f242;
+        font-family: "text", "Helvetica";
+        letter-spacing: 5px;
+        word-spacing: 10px;
+      }
+
+      input[type="text"],
+      input[type="number"],
+      textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 14px;
+      }
+
+      input[type="submit"] {
+        background-color: #b50404;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #4d0909;
+      }
+
+      .skeleton-gun {
+        width: 200px;
+        height: auto;
+      }
+
+      .arrow-container {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .arrow {
+        position: absolute;
+        width: 30px;
+        height: auto;
+      }
+
+      .arrow-down {
+        top: -40px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .arrow-up {
+        bottom: -40px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .arrow-right {
+        right: 100px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      .arrow-left {
+        left: 100px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 50px;
+        height: auto;
+      }
+
+      .submit-button {
+        position: relative;
+        z-index: 1;
+      }
+
+      .flex-row {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .bottom-section {
+        margin-top: 20px;
+        justify-content: flex-start;
+      }
+
+      .bottom-section p {
+        margin-right: 20px;
+        flex-grow: 2;
+      }
     </style>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <div class="container">
-        <img src="{{ url_for('static', filename='deletegun.gif') }}" >
-        
-        <div class="flex-row">
-            <div>
-                <p> ARE YOU SURE YOU WANT TO DELETE </p>
-                <img src="{{ url_for('static', filename='warning.gif') }}" >
-            </div>
-            <img src="{{ url_for('static', filename='skeletongun.PNG') }}" class="skeleton-gun">
+      <img src="{{ url_for('static', filename='deletegun.gif') }}" />
+
+      <div class="flex-row">
+        <div>
+          <p>ARE YOU SURE YOU WANT TO DELETE</p>
+          <img src="{{ url_for('static', filename='warning.gif') }}" />
         </div>
-        
-        <form action="/delete-gun" method="post" enctype="multipart/form-data">
-            <div class="input-group">
-                <label for="reason-for-deletion">Reason for deletion:</label>
-                <input type="text" id="reason-for-deletion" name="reason-for-deletion" placeholder="Why are you deleting this gun ?????" >
-            </div>
-            <div class="arrow-container" id="arrow-container">
-                <img src="{{ url_for('static', filename='down.gif') }}" class="arrow arrow-down">
-                <img src="{{ url_for('static', filename='right.gif') }}" class="arrow arrow-right">
-                <input type="image" src="{{ url_for('static', filename='no.gif') }}" alt="Delete gun" class="submit-button">
-                <img src="{{ url_for('static', filename='left.gif') }}" class="arrow arrow-left">
-                <img src="{{ url_for('static', filename='up.gif') }}" class="arrow arrow-up">
-            </div>
-        </form>
-        
-        <div class="flex-row bottom-section">
-            <p> THIS ACTION CANNOT BE UNDONE </p>
-            <img src="{{ url_for('static', filename='skeletonspin.gif') }}" >  
+        <img
+          src="{{ url_for('static', filename='skeletongun.PNG') }}"
+          class="skeleton-gun"
+        />
+      </div>
+
+      <form action="/delete-gun" method="post" enctype="multipart/form-data">
+        <div class="input-group">
+          <label for="reason-for-deletion">Reason for deletion:</label>
+          <input type="hidden" name="gun_id" value="{{ gun_id }}" />
+          <input
+            type="text"
+            id="reason-for-deletion"
+            name="reason-for-deletion"
+            placeholder="Why are you deleting this gun ?????"
+          />
         </div>
-    </div> 
-    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script> 
+        <div class="arrow-container" id="arrow-container">
+          <img
+            src="{{ url_for('static', filename='down.gif') }}"
+            class="arrow arrow-down"
+          />
+          <img
+            src="{{ url_for('static', filename='right.gif') }}"
+            class="arrow arrow-right"
+          />
+          <input
+            type="image"
+            src="{{ url_for('static', filename='no.gif') }}"
+            alt="Delete gun"
+            class="submit-button"
+          />
+          <img
+            src="{{ url_for('static', filename='left.gif') }}"
+            class="arrow arrow-left"
+          />
+          <img
+            src="{{ url_for('static', filename='up.gif') }}"
+            class="arrow arrow-up"
+          />
+        </div>
+      </form>
+
+      <div class="flex-row bottom-section">
+        <p>THIS ACTION CANNOT BE UNDONE</p>
+        <img src="{{ url_for('static', filename='skeletonspin.gif') }}" />
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script>
     <script>
-      const lenis = new Lenis()
+      const lenis = new Lenis();
 
-lenis.on('scroll', (e) => {
-  console.log(e)
-})
+      lenis.on("scroll", (e) => {
+        console.log(e);
+      });
 
-function raf(time) {
-  lenis.raf(time)
-  requestAnimationFrame(raf)
-}
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
 
-requestAnimationFrame(raf)
+      requestAnimationFrame(raf);
     </script>
     <script>
-        const arrowContainer = document.getElementById('arrow-container');
-        const reasonForDeletionInput = document.getElementById('reason-for-deletion');
-        const container = document.querySelector('.container');
+      const arrowContainer = document.getElementById("arrow-container");
+      const reasonForDeletionInput = document.getElementById(
+        "reason-for-deletion"
+      );
+      const container = document.querySelector(".container");
 
-        const animateMove = (element, prop, pixels) =>
-            anime({
-                targets: element,
-                [prop]: `${pixels}px`,
-                easing: "easeOutCirc"
-            });
+      const animateMove = (element, prop, pixels) =>
+        anime({
+          targets: element,
+          [prop]: `${pixels}px`,
+          easing: "easeOutCirc",
+        });
 
-            ["mouseover", "click"].forEach(function (el) {
-                arrowContainer.addEventListener(el, function (event) {
-                    if (reasonForDeletionInput.value.trim() === '') {
-                        const top = getRandomNumber(container.clientHeight - this.offsetHeight);
-                        const left = getRandomNumber(container.clientWidth - this.offsetWidth);
-            
-                        animateMove(this, "left", left).play();
-                        animateMove(this, "top", top).play();
-                    }
-                });
-            });
+      ["mouseover", "click"].forEach(function (el) {
+        arrowContainer.addEventListener(el, function (event) {
+          if (reasonForDeletionInput.value.trim() === "") {
+            const top = getRandomNumber(
+              container.clientHeight - this.offsetHeight
+            );
+            const left = getRandomNumber(
+              container.clientWidth - this.offsetWidth
+            );
 
-        const getRandomNumber = (num) => {
-            return Math.floor(Math.random() * (num + 1));
-        };
+            animateMove(this, "left", left).play();
+            animateMove(this, "top", top).play();
+          }
+        });
+      });
 
-    </script>    
-
-</body>
-
+      const getRandomNumber = (num) => {
+        return Math.floor(Math.random() * (num + 1));
+      };
+    </script>
+  </body>
 </html>
