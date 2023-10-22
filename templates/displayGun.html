@@ -13,21 +13,26 @@
     </header>
 
     <div id="gun-container">
-      <img id="gun-image" src="{{ url_for('static', filename='upload/' + gun.image) }}">
-  </div>
+      <img
+        id="gun-image"
+        src="{{ url_for('static', filename='upload/' + gun.image) }}"
+      />
+    </div>
 
-  <div id="name-container">
-    <h4 id="name">{{ gun.name }}</h4>
-    <p id="price"><strong>Price ($): </strong> ${{ gun.price }}</p>
-</div>
+    <div id="name-container">
+      <h4 id="name">{{ gun.name }}</h4>
+      <p id="price"><strong>Price ($): </strong> ${{ gun.price }}</p>
+    </div>
 
     <div id="add-to-cart">
       <p id="add-cart-text">Add to Cart</p>
     </div>
 
     <div id="description-container">
-      <p id="description"><strong>Description: </strong> {{ gun.description }}</p>
-  </div>
+      <p id="description">
+        <strong>Description: </strong> {{ gun.description }}
+      </p>
+    </div>
 
     <img id="cart" src="../static/shoppingcart.png" />
 
@@ -36,9 +41,13 @@
     </div>
 
     <div id="edit-delete-container">
-      <a href="{{ url_for('edit_gun', gun_id=gun._id) }}"><p id="edit-button">Edit Gun</p></a>
-      <a href="{{ url_for('delete_gun', gun_id=gun._id) }}"><p id="delete-button">Delete Gun</p></a>
-  </div>
+      <a href="{{ url_for('edit_gun', gun_id=gun._id) }}"
+        ><p id="edit-button">Edit Gun</p></a
+      >
+      <a href="{{ url_for('delete_gun', gun_id=gun._id) }}"
+        ><p id="delete-button">Delete Gun</p></a
+      >
+    </div>
     <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script>
     <script>
       const lenis = new Lenis();
@@ -55,7 +64,6 @@
       requestAnimationFrame(raf);
     </script>
     <script>
-      
       addCartText.innerHTML += " - " + gunPrice.innerText;
 
       addCart.addEventListener("pointerdown", updateCart);
